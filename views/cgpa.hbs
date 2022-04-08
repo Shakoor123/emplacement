@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>CGPA page</title>
+  <style>
+.col-sm-2{
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-left: 20px;
+}
+</style>
+</head>
+
+<body style="background: rgb(255, 255, 255);font-family:Oswald">
+  {{!-- nav bar veenam --}}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fw-bolder" >
+    <div class="container-fluid">
+      <img src="/images/logo.png" alt="" class="col-sm-6 img-fluid" style="height: 80px; margin-right:20px;">
+      <a class="navbar-brand" href="#" >PLACEMENT CELL</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon "></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link btn" aria-current="page" href="/" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active btn" style="" href="/cgpa" >CGPA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn " href="#foot">About</a>
+          </li>
+        </ul>
+        {{#if user}}
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle bg-primary" type="button" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{user.name}}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/logout">logout</a>
+
+            {{else}}
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle bg-primary" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/login">Login</a>
+                <a class="dropdown-item" href="/signup">signup</a>
+
+              </div>
+            </div>
+
+
+
+            {{/if}}
+          </div>
+        </div>
+  </nav>
+
+{{!-- cgpa section --}}
+<div class="row">
+    <div class="col-sm-2 ">
+      <div class="card bg-info col d-flex justify-content-cente" style="width: 18rem; padding:30px;">
+        <form name="f1">
+          <h2>SEM1</h2>
+
+          <table>
+            <div class="text">
+
+              Sub code 1003 <input type="text" id="1003" maxlength="1" size="3"> 3<br>
+              Sub code 1008 <input type="text" id="1008" maxlength="1" size="3"> 4<br>
+              Sub code 1002 <input type="text" id="1002" maxlength="1" size="3"> 6<br>
+              Sub code 1009 <input type="text" id="1009" maxlength="1" size="3"> 2<br>
+              Sub code 1001 <input type="text" id="1001" maxlength="1" size="3"> 3<br>
+              Sub code 1004 <input type="text" id="1004" maxlength="1" size="3"> 3<br><br><br>
+              SGPA of 1st sem <input type="text" name="sem1" maxlength="0" size="3"><br>
+            </div>
+          </table>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="col-sm-2 ">
+      <div class="card bg-info col d-flex justify-content-cente" style="width: 18rem; padding:30px;">
+        <form name="f2">
+          <h2>SEM2</h2>
+          <table>
+            Sub code 2009 <input type="text" id="2009" maxlength="1" size="3"> 2<br>
+            Sub code 2007 <input type="text" id="2007" maxlength="1" size="3"> 3<br>
+            Sub code 2005 <input type="text" id="2005" maxlength="1" size="3"> 5<br>
+            Sub code 2004 <input type="text" id="2004" maxlength="1" size="3"> 3<br>
+            Sub code 2003 <input type="text" id="2003" maxlength="1" size="3"> 3<br>
+            Sub code 2002 <input type="text" id="2002" maxlength="1" size="3"> 6<br>
+            Sub code 2001 <input type="text" id="2001" maxlength="1" size="3"> 3<br>
+            Sub code 2139 <input type="text" id="2139" maxlength="1" size="3"> 2<br>
+            Sub code 2008 <input type="text" id="2008" maxlength="1" size="3"> 3<br>
+            Sub code 2131 <input type="text" id="2131" maxlength="1" size="3"> 4<br><br><br>
+            SGPA of 2st sem <input type="text" name="sem2" maxlength="0" size="3"><br>
+
+          </table>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-sm-2 ">
+      <div class="card bg-info col d-flex justify-content-cente" style="width: 18rem; padding:30px;">
+        <form name="f3">
+
+          <h2>SEM 3</h2>
+          <table>
+            Sub code 3134 <input type="text" id="3134" maxlength="1" size="3"> 5<br>
+            Sub code 3133 <input type="text" id="3133" maxlength="1" size="3"> 4<br>
+            Sub code 3139 <input type="text" id="3139" maxlength="1" size="3"> 3<br>
+            Sub code 3138 <input type="text" id="3138" maxlength="1" size="3"> 3<br>
+            Sub code 3137 <input type="text" id="3137" maxlength="1" size="3"> 3<br>
+            Sub code 3132 <input type="text" id="3132" maxlength="1" size="3"> 4<br>
+            Sub code 3001 <input type="text" id="3001" maxlength="1" size="3"> 3<br>
+            Sub code 3131 <input type="text" id="3131" maxlength="1" size="3"> 4<br><br><br><br>
+            SGPA of 3RD sem <input type="text" name="sem3" maxlength="0" size="3"><br>
+          </table>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-sm-2 ">
+      <div class="card bg-info col d-flex justify-content-cente" style="width: 18rem; padding:30px;">
+        <form name="f4">
+          <h2>SEM 4</h2>
+          <table>
+            Sub code 4136 <input type="text" id="4136" maxlength="1" size="3"> 5<br>
+            Sub code 4133 <input type="text" id="4133" maxlength="1" size="3"> 5<br>
+            Sub code 4132 <input type="text" id="4132" maxlength="1" size="3"> 4<br>
+            Sub code 4139 <input type="text" id="4139" maxlength="1" size="3"> 3<br>
+            Sub code 4137 <input type="text" id="4137" maxlength="1" size="3"> 3<br>
+            Sub code 4134 <input type="text" id="4134" maxlength="1" size="3"> 4<br>
+            Sub code 4131 <input type="text" id="4131" maxlength="1" size="3"> 4<br>
+            Sub code 4138 <input type="text" id="4138" maxlength="1" size="3"> 3<br><br><br><br>
+            SGPA of 4TH sem <input type="text" name="sem4" maxlength="0" size="3"><br>
+          </table>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="col-sm-2 ">
+      <div class="card bg-info col d-flex justify-content-cente" style="width: 18rem; padding:30px;">
+        <form name="f5">
+          <table>
+            sgpa upto 3RD sem <input type="text" name="cgpatotal1" maxlength="0" size="3"><br>
+            sgpa upto 4TH sem <input type="text" name="cgpatotal" maxlength="0"  size="3"><br>
+          </table>
+        </form>
+        <div class="submit">
+          <input type="button" value="submit" onclick="sgpa()">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+{{!-- footer section --}}
+
+<div class="card text-center" id="foot" style="background: rgb(255, 255, 255);">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title" style="color: rgb(0, 0, 0);">Government Polytechnic College Kasaragod </h5>
+    <p class="card-text" style="color: rgb(0, 0, 0);">
+
+Established in the year 1988 with an objective of providing high quality technical education with skill oriented training to the youth of North Malabar region, Government Polytechnic College Kasaragod has grown in stature as one of the premier Polytechnic Colleges in the state of Kerala.
+
+The College offers five three-year Diploma programs in the disciplines of Civil Engineering, Mechanical Engineering, Electrical & Electronics Engineering, Electronics Engineering, and Computer Engineering. The annual intake of the institution is 280 at present.
+
+The GPC Kasaragod campus is situated at Vadakkekkara, Periye in the Pullur-Periye Grama Panchayath in Kasaragod district. The nearest railway station is Kanhangad (13 km) on Mangalore-Palakkad line. There are airports at Mangalore (80 km) and Kannur (108 km).
+.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    GPTC kasaragod CT students(2017-2022)
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+<script>
+  function sgpa() {
+      var a1 = document.getElementById("1003").value;
+      var a = 3 * grade(a1);
+      var a2 = document.getElementById("1008").value;
+      var b = 4 * grade(a2);
+      var a3 = document.getElementById("1002").value;
+      var c = 6 * grade(a3);
+      var a4 = document.getElementById("1009").value;
+      var d = 2 * grade(a4);
+      var a5 = document.getElementById("1001").value;
+      var e = 3 * grade(a5);
+      var a6 = document.getElementById("1004").value;
+      var f = 3 * grade(a6);
+
+      var first = a + b + c + d + e + f;
+      first = (first / 210) * 10;
+      document.f1.sem1.value = first;
+
+      var b1 = document.getElementById("2009").value;
+      var g = 2 * grade(b1);
+      var b2 = document.getElementById("2007").value;
+      var h = 3 * grade(b2);
+      var b3 = document.getElementById("2005").value;
+      var i = 5 * grade(b3);
+      var b4 = document.getElementById("2004").value;
+      var j = 3 * grade(b4);
+      var b5 = document.getElementById("2003").value;
+      var k = 3 * grade(b5);
+      var b6 = document.getElementById("2002").value;
+      var l = 6 * grade(b6);
+      var b7 = document.getElementById("2001").value;
+      var m = 3 * grade(b7);
+      var b8 = document.getElementById("2139").value;
+      var n = 2 * grade(b8);
+      var b9 = document.getElementById("2008").value;
+      var o = 3 * grade(b9);
+      var b10 = document.getElementById("2131").value;
+      var p = 4 * grade(b10);
+
+
+      var second = g + h + i + j + k + l + m + n + o + p;
+      second = (second / 340) * 10;
+      document.f2.sem2.value = second;
+
+      var c1 = document.getElementById("3134").value;
+      var q = 5 * grade(c1);
+      var c2 = document.getElementById("3133").value;
+      var r = 4 * grade(c2);
+      var c3 = document.getElementById("3139").value;
+      var s = 3 * grade(c3);
+      var c4 = document.getElementById("3138").value;
+      var t = 3 * grade(c4);
+      var c5 = document.getElementById("3137").value;
+      var u = 3 * grade(c5);
+      var c6 = document.getElementById("3132").value;
+      var v = 4 * grade(c6);
+      var c7 = document.getElementById("3001").value;
+      var w = 3 * grade(c7);
+      var c8 = document.getElementById("3131").value;
+      var x = 4 * grade(c8);
+
+      var third = q + r + s + t + u + v + w + x;
+      third = (third / 290) * 10;
+      document.f3.sem3.value = third;
+      // document.f1.cgpatotal.value = (first + second + third) / 3;
+
+      var e1 = document.getElementById("4136").value;
+      var d1 = 5 * grade(e1);
+      var e2 = document.getElementById("4133").value;
+      var d2 = 5 * grade(e2);
+      var e3 = document.getElementById("4132").value;
+      var d3 = 4 * grade(e3);
+      var e4 = document.getElementById("4139").value;
+      var d4 = 3 * grade(e4);
+      var e5 = document.getElementById("4137").value;
+      var d5 = 3 * grade(e5);
+      var e6 = document.getElementById("4134").value;
+      var d6 = 4 * grade(e6);
+      var e7 = document.getElementById("4131").value;
+      var d7 = 4 * grade(e7);
+      var e8 = document.getElementById("4138").value;
+      var d8 = 3 * grade(e8);
+
+      var fourth = d1 + d2 + d3 + d4 + d5 + d6 + d7 + d8;
+      fourth = (fourth / 310) * 10;
+      document.f4.sem4.value = fourth;
+      document.f5.cgpatotal.value = (first + second + third + fourth) / 4;
+      document.f5.cgpatotal1.value=(first+second+third)/3;
+
+  }
+
+  function grade(a) {
+      if (a == "s" || a == "S") {
+          a = 10;
+      } else if (a == "a" || a == "A") {
+          a = 9;
+      } else if (a == "b" || a == "B") {
+          a = 8;
+      } else if (a == "c" || a == "C") {
+          a = 7;
+      } else if (a == "d" || a == "D") {
+          a = 6;
+      } else if (a == "e" || a == "E") {
+          a = 5;
+      } else {
+          a = 0;
+      }
+      return a;
+  }
+</script>
+
+</html>
