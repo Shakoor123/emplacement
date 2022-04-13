@@ -1,0 +1,52 @@
+body{
+   
+    font-family: 'Akshar', sans-serif;
+    background: linear-gradient(to top right, #66ccff 0%, #ff99cc 100%);
+}
+.form-control{
+    border-radius: 5rem;
+    outline:8px;
+    border-color: #fd8bc4;
+    
+}
+.login{
+    border-radius: 5rem;
+    width: 150px;
+    outline: 8px;
+    border-color: #fd8bc4;
+    background-color: #ffffff;
+    color:#fd8bc4;
+}
+.register{
+    border-radius: 5rem;
+    background-color: #ffffff;
+    color: #000000;
+    /* outline: 8px; */
+    border-color: #66ccff;
+
+}
+.register:hover{
+    background-color: #66ccff;
+    color: #000000;
+}
+.navbar{
+    
+    position: fixed;
+    width: 100%;
+    
+}
+.login:hover{
+    background-color: #fd8bc4;
+    color: rgb(255, 255, 255);
+}
+.vh-100{
+    padding-top: 120px;
+}
+.mb-5{
+    font-size: 40px;
+    font-family:'open sans';
+    font-weight: 400;
+}
+.navbar-brand{
+    font-family:popins;
+}
