@@ -61,3 +61,37 @@ body{
 .body{
     margin-top: 40px;
 }
+.branch{
+    border-radius: 5rem;
+    outline:1px;
+    border-color: #fd8bc4;
+    width: 430px;
+    height: 50px;
+}
+.custom-select{
+    /* wrapper style */
+    position: relative;
+    display:block;
+    max-width: 450px;
+    min-width: 320px;
+    margin:0 auto;
+}
+    select {
+      /* Select Reset */
+      border: 1px solid;
+      outline:none;
+      background:transparent;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border-radius: 0;
+      margin:0;
+      display:block;
+      width: 100%;
+      cursor: pointer;
+      
+      /* custom select appearance */  
+      padding: 12px 55px 15px 15px;
+      font-size: 14px;
+    }
+  }
