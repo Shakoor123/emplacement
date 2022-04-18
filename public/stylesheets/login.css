@@ -1,11 +1,12 @@
 body{
-   
+    color: #000000;
     font-family: 'Akshar', sans-serif;
-    background: linear-gradient(to top right, #66ccff 0%, #ff99cc 100%);
+
+    font-family: 'Quicksand', sans-serif;    background: linear-gradient(to top right, #66ccff 0%, #ff99cc 100%);
 }
 .form-control{
     border-radius: 5rem;
-    outline:8px;
+    outline:1px;
     border-color: #fd8bc4;
     
 }
@@ -18,21 +19,24 @@ body{
     color:#fd8bc4;
 }
 .register{
-    border-radius: 5rem;
-    background-color: #ffffff;
+    /* border-radius: 5rem;
+    background-color: #ffffff; */
     color: #000000;
     /* outline: 8px; */
     border-color: #66ccff;
+    text-decoration: none;
+
 
 }
 .register:hover{
-    background-color: #66ccff;
+    /* background-color: #66ccff; */Registe
     color: #000000;
 }
 .navbar{
     
     position: fixed;
     width: 100%;
+    background-color: #0000000c;
     
 }
 .login:hover{
@@ -44,9 +48,16 @@ body{
 }
 .mb-5{
     font-size: 40px;
-    font-family:'open sans';
     font-weight: 400;
 }
 .navbar-brand{
+    font-weight:300;
     font-family:popins;
+    color: #000000;
+}
+.nav-link{
+    color: #000000;
+}
+.body{
+    margin-top: 40px;
 }

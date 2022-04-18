@@ -1,0 +1,31 @@
+body{
+    color: #000000;
+
+    font-family: 'Quicksand', sans-serif;    background: linear-gradient(to top right, #66ccff 0%, #ff99cc 100%);    background: linear-gradient(to top right, #66ccff 0%, #ff99cc 100%);
+}
+.login{
+    border-radius: 5rem;
+    width: 150px;
+    outline: 8px;
+    border-color: #fd8bc4;
+    background-color: #ffffff;
+    color:#fd8bc4;
+}
+.navbar-brand{
+    font-family:popins;
+    color: #000000;
+}
+.nav-link{
+    color: #000000;
+}
+.navbar{
+    
+    position: fixed;
+    width: 100%;
+    background-color: #0000000c;
+    
+}
+.body{
+    padding-top: 170px;
+    padding-left: 50px;
+}

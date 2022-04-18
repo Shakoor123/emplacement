@@ -7,71 +7,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Akshar:wght@500&family=Quicksand&display=swap" rel="stylesheet"> 
+   <link rel="stylesheet" href="/stylesheets/cgpa.css">
 
   <title>CGPA page</title>
-  <style>
-.col-sm-2{
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-left: 20px;
-}
-</style>
 </head>
 
-<body style="background: rgb(255, 255, 255);font-family:Oswald">
+<body>
   {{!-- nav bar veenam --}}
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fw-bolder" >
-    <div class="container-fluid">
-      <img src="/images/logo.png" alt="" class="col-sm-6 img-fluid" style="height: 80px; margin-right:20px;">
-      <a class="navbar-brand" href="#" >PLACEMENT CELL</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon "></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link btn" aria-current="page" href="/" >Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active btn" style="" href="/cgpa" >CGPA</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn " href="#foot">About</a>
-          </li>
-        </ul>
-        {{#if user}}
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle bg-primary" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{user.name}}
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/logout">logout</a>
-
-            {{else}}
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle bg-primary" type="button" id="dropdownMenuButton"
+ {{!-- nav bar veenam --}}
+<nav class="navbar navbar-expand-lg  ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">EMPLACEMENT</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"  href="/">Home</a>
+        </li>
+        
+      </ul>
+      <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle login" type="button" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Account
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="/login">Login</a>
-                <a class="dropdown-item" href="/signup">signup</a>
-
               </div>
             </div>
-
-
-
-            {{/if}}
-          </div>
-        </div>
-  </nav>
-
+    </div>
+    
+  </div>
+</nav>
 {{!-- cgpa section --}}
+<div class="body">
 <div class="row">
     <div class="col-sm-2 ">
       <div class="card bg-info col d-flex justify-content-cente" style="width: 18rem; padding:30px;">
@@ -173,31 +148,10 @@
 
   </div>
 
-
-
-{{!-- footer section --}}
-
-<div class="card text-center" id="foot" style="background: rgb(255, 255, 255);">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-    <h5 class="card-title" style="color: rgb(0, 0, 0);">Government Polytechnic College Kasaragod </h5>
-    <p class="card-text" style="color: rgb(0, 0, 0);">
-
-Established in the year 1988 with an objective of providing high quality technical education with skill oriented training to the youth of North Malabar region, Government Polytechnic College Kasaragod has grown in stature as one of the premier Polytechnic Colleges in the state of Kerala.
-
-The College offers five three-year Diploma programs in the disciplines of Civil Engineering, Mechanical Engineering, Electrical & Electronics Engineering, Electronics Engineering, and Computer Engineering. The annual intake of the institution is 280 at present.
-
-The GPC Kasaragod campus is situated at Vadakkekkara, Periye in the Pullur-Periye Grama Panchayath in Kasaragod district. The nearest railway station is Kanhangad (13 km) on Mangalore-Palakkad line. There are airports at Mangalore (80 km) and Kannur (108 km).
-.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-  <div class="card-footer text-muted">
-    GPTC kasaragod CT students(2017-2022)
-  </div>
 </div>
 
+
+</body>
 
 
 
@@ -221,7 +175,6 @@ The GPC Kasaragod campus is situated at Vadakkekkara, Periye in the Pullur-Periy
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-</body>
 <script>
   function sgpa() {
       var a1 = document.getElementById("1003").value;
