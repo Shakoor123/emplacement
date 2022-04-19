@@ -8,9 +8,6 @@ dotenv.config();
 const saltRounds = 10;
 //database connection
 var mysql = require('mysql')
-console.log("db config ", process.env.DBPASSWORD);
-const dbString = process.env.DBURL;
-console.log("dbString ", dbString);
 const dbConfig = {
   host: process.env.dbHost,
   user: process.env.dbUser,
@@ -21,7 +18,6 @@ const dbConfig = {
 }
 
 var connection = mysql.createConnection(dbConfig)
-connection.config.ssl.ca = fs.readFileSync("ca.pem");
 
 connection.connect(function (err) {
   // if (err) throw err
