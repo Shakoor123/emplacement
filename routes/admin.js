@@ -8,7 +8,7 @@ var mysql = require('mysql')
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Shakoor@2786',
+  password: 'mysql',
   database: 'project1'
 })
 connection.connect(function (err) {
@@ -38,6 +38,7 @@ router.get('/home',(req,res)=>{
   connection.query(sql,(err,result)=>{
     if(err) throw err;
     else{
+      console.log(result);
       res.render('admin/home',{result})
     }
   })
@@ -47,7 +48,10 @@ router.get('/home',(req,res)=>{
 router.get('/notification',(req,res)=>{
   connection.query(`SELECT * FROM notification `, function (err, result, fields) {
     if (err) throw err;
-    res.render('admin/notification',{result})
+    else{
+      console.log(result);
+      res.render('admin/notification',{result})
+    }
 
   });
 })
@@ -59,18 +63,21 @@ router.get('/addnotification',(req,res)=>{
 //add notification operation
 router.post('/addnotification',async(req,res)=>{
   console.log(req.body);
-  var sql = `INSERT INTO notification VALUES ("${req.body.title}","${req.body.About}","${req.body.cgpa}")`;
+  date=Date.now().toString();
+  var nowDate = new Date(); 
+var date1 = nowDate.getDate()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getFullYear();
+  var sql = `INSERT INTO notification VALUES ("${date}","${req.body.title}","${req.body.About}","${req.body.cgpa}","${date1}")`;
   await connection.query(sql,async function (err, result) {
     if (err) throw err;
     else{
-      var title=req.body.title;
-      var sql=`create table ${title}(name varchar(200),phone bigint,branch varchar(100),rno bigint,cgpa float);`
-      await connection.query(sql,(err,result)=>{
-        if (err) throw err;
-        else{
+      // var title=req.body.date;
+      // var sql=`create table ${title}(name varchar(200),phone bigint,branch varchar(100),rno bigint,cgpa float);`
+      // await connection.query(sql,(err,result)=>{
+      //   if (err) throw err;
+      //   else{
           res.redirect('/admin/notification')
-        }
-      })
+      //   }
+      // })
     }
   })
 })
@@ -102,7 +109,7 @@ router.get('/students',(req,res)=>{
 })
 //all students details
 router.get('/allstudents',async(req,res)=>{
-  var sql=`select * from student`;deleteimg/pic_1649
+  var sql=`select * from student`;
   await connection.query(sql,(err,result)=>{
     if(err) throw err;
     else{
@@ -192,7 +199,7 @@ router.post('/insertimage',upload.single('pic'),async(req,res)=>{
 //delete image of front page
 router.get('/deleteimg/:img',(req,res)=>{
   var image=req.params.img;
-  var sql=`DELETE FROM image WHERE img="${image}";`
+  var sql=`DELETE FROM images WHERE name="${image}";`
   connection.query(sql,(err,result)=>{
     res.redirect('/admin/home');
   })

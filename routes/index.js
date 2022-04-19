@@ -8,7 +8,7 @@ var mysql = require('mysql')
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Shakoor@2786',
+  password: 'mysql',
   database: 'project1'
 })
 connection.connect(function (err) {
@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
   connection.query(sql,(err,result)=>{
     if(err) throw err;
     else{
-      image=result;
+      images=result;
     }
   })
   var sql=`select * from notification`;
@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
     if(err) throw err;
     else{
      
-      res.render('index',{user,result,image});
+      res.render('index',{user,result,images});
     }
   })
   
