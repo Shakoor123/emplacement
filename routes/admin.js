@@ -14,11 +14,11 @@ const dbConfig = {
   database: process.env.dbDatabase,
   ssl: { ca: fs.readFileSync("ca.pem") }
 }
-var connection = mysql.createConnection(dbConfig
-)
+const connection = mysql.createConnection(dbConfig)
+
 connection.connect(function (err) {
   if (err) throw err
-  console.log('database connected...')
+  console.log('admin.js database connected...')
 
 })
 //image uploading hedder
