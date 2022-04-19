@@ -29,3 +29,7 @@ body{
     padding-top: 170px;
     padding-left: 50px;
 }
+.login:hover{
+    background-color: #fd8bc4;
+    color: rgb(255, 255, 255);
+}

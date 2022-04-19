@@ -8,8 +8,8 @@ var mysql = require('mysql')
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'mysql',
-  database: 'project'
+  password: 'Shakoor@2786',
+  database: 'project1'
 })
 connection.connect(function (err) {
   if (err) throw err
@@ -20,7 +20,7 @@ connection.connect(function (err) {
 router.get('/', function(req, res, next) {
   var user=req.session.user;
   var image;
-  var sql= `select * from image;`
+  var sql= `select * from images;`
   connection.query(sql,(err,result)=>{
     if(err) throw err;
     else{
@@ -70,7 +70,7 @@ router.post('/signup',async(req,res)=>{
           }else{
             com=0;
             bcrypt.hash(req.body.password, saltRounds,async function(err, hash) {
-              var sql = `INSERT INTO student VALUES ("${req.body.regno}","${req.body.name}","${req.body.email}","${req.body.mobile}","${req.body.cgpa}","${hash}")`;
+              var sql = `INSERT INTO student VALUES ("${req.body.regno}","${req.body.name}","${req.body.branch}","${req.body.email}","${req.body.mobile}","${req.body.cgpa}","${hash}")`;
             await connection.query(sql, function (err, result) {
               if (err) throw err;
               else{

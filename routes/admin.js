@@ -8,8 +8,8 @@ var mysql = require('mysql')
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'mysql',
-  database: 'project'
+  password: 'Shakoor@2786',
+  database: 'project1'
 })
 connection.connect(function (err) {
   if (err) throw err
@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
 });
 //home page all details of students
 router.get('/home',(req,res)=>{
-  var sql= `select * from image;`
+  var sql= `select * from images;`
   connection.query(sql,(err,result)=>{
     if(err) throw err;
     else{
@@ -180,7 +180,7 @@ app.use('/profile',express.static('public/images'));
 // inserting the image
 router.post('/insertimage',upload.single('pic'),async(req,res)=>{
 
-  var sql=`insert into image values("${req.file.filename}");`
+  var sql=`insert into images values("${req.file.filename}");`
   await connection.query(sql,(err,result)=>{
     if(err) throw err;
     else{
