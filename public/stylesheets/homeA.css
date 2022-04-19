@@ -1,7 +1,7 @@
 body{
     color: #000000;
-
-    font-family: 'Quicksand', sans-serif;    background: linear-gradient(to top right, #66ccff 0%, #ff99cc 100%);    background: linear-gradient(to top right, #66ccff 0%, #ff99cc 100%);
+background-color: #ffffff;
+    font-family: 'Quicksand', sans-serif;    
 }
 .login{
     border-radius: 5rem;

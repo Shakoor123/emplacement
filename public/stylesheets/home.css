@@ -1,32 +1,42 @@
 body{
     color: #000000;
-
-    font-family: 'Quicksand', sans-serif;    background: linear-gradient(to top right, #66ccff 0%, #ff99cc 100%);    background: linear-gradient(to top right, #66ccff 0%, #ff99cc 100%);
+background-color: #ffffff;
+    font-family: 'Quicksand', sans-serif;    
 }
 .login{
     border-radius: 5rem;
     width: 150px;
     outline: 8px;
-    border-color: #fd8bc4;
+    border-color: #5f4dee;
     background-color: #ffffff;
-    color:#fd8bc4;
+    color:#5f4dee;
 }
 .navbar-brand{
     color: #000000;
+    font-weight: 800;
+    font-size: 20px;
+}
+.navbar::hover
+{
+color: #ffffff;
 }
 .nav-link{
-    color: #000000;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight:800;
 }
 .navbar{
     width: 100%;
-    background-color: #ffffff56;
+    background-color: #5f4dee;
     
 }
 #carouselExampleControls{
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
 
 }
 .login:hover{
-    background-color: #fd8bc4;
+    background-color: #5f4dee;
     color: rgb(255, 255, 255);
+    border: solid 0.1rem #ffffff;
 }
