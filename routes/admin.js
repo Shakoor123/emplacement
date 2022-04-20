@@ -17,6 +17,15 @@ connection.connect(function (err) {
   console.log('database connected...')
 
 })
+//admin middile ware
+function isAdmin(req,res,next){
+  if(req.session.admin){
+    next()
+  }else{
+    redirect('/')
+  }
+  }
+
 //image uploading hedder
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -34,7 +43,7 @@ router.get('/', function (req, res, next) {
   res.render('admin/loginA');
 });
 //home page all details of students
-router.get('/home', (req, res) => {
+router.get('/home',isAdmin, (req, res) => {
   var sql = `select * from images;`
   connection.query(sql, (err, result) => {
     if (err) throw err;
@@ -46,7 +55,7 @@ router.get('/home', (req, res) => {
 
 })
 //notification  page
-router.get('/notification', (req, res) => {
+router.get('/notification',isAdmin, (req, res) => {
   connection.query(`SELECT * FROM notification `, function (err, result, fields) {
     if (err) throw err;
     else {
@@ -58,7 +67,7 @@ router.get('/notification', (req, res) => {
 })
 
 //Addnotification  page
-router.get('/addnotification', (req, res) => {
+router.get('/addnotification',isAdmin, (req, res) => {
   res.render('admin/addNotification')
 })
 //add notification operation
@@ -85,10 +94,29 @@ router.post('/addnotification', async (req, res) => {
 
 //admin login operation
 router.post('/loginA', (req, res) => {
-  res.redirect('/admin/home')
+  var sql = `select * from admin where username="${req.body.username}"`;
+  await connection.query(sql, function (err, result) {
+    if (err) throw err;
+    else {
+      bcrypt.compare(req.body.password, result[0].password, function (err, status) {
+        if (status) {
+          req.session.admin = result[0];
+          res.redirect('admin/home')
+        } else {
+          res.redirect('admin/')
+        }
+      });
+    }
+  })
+})
+
+//logout admin
+router.get('/logoutA',(req,res)=>{
+  req.session.destroy();
+  res.redirect('admin/');
 })
 //delete notification
-router.get('/deleteNotification/:name', async (req, res) => {
+router.get('/deleteNotification/:name',isAdmin, async (req, res) => {
   let name = req.params.name;
   var sql = `delete from notification where title="${name}"`;
   await connection.query(sql, async function (err, result) {
@@ -105,11 +133,11 @@ router.get('/deleteNotification/:name', async (req, res) => {
   })
 })
 //student details page
-router.get('/students', (req, res) => {
+router.get('/students',isAdmin, (req, res) => {
   res.render('admin/students')
 })
 //all students details
-router.get('/allstudents', async (req, res) => {
+router.get('/allstudents',isAdmin, async (req, res) => {
   var sql = `select * from student`;
   await connection.query(sql, (err, result) => {
     if (err) throw err;
@@ -131,7 +159,7 @@ router.post('/branch', async (req, res) => {
   })
 })
 //delete student
-router.get('/deletestudent/:ph', async (req, res) => {
+router.get('/deletestudent/:ph',isAdmin, async (req, res) => {
   phone = req.params.ph;
   console.log(phone);
   var sql = `DELETE FROM student WHERE phone="${phone}";`
@@ -144,7 +172,7 @@ router.get('/deletestudent/:ph', async (req, res) => {
 
 })
 //notification applayed students
-router.get('/notificationApplyed/:title', async (req, res) => {
+router.get('/notificationApplyed/:title',isAdmin, async (req, res) => {
   res.send(req.params.title)
   var title = req.params.title;
   var sql = `select * from ${title};`
@@ -198,7 +226,7 @@ router.post('/insertimage', upload.single('pic'), async (req, res) => {
   })
 })
 //delete image of front page
-router.get('/deleteimg/:img', (req, res) => {
+router.get('/deleteimg/:img',isAdmin, (req, res) => {
   var image = req.params.img;
   var sql = `DELETE FROM images WHERE name="${image}";`
   connection.query(sql, (err, result) => {
