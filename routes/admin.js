@@ -2,6 +2,8 @@ var express = require('express');
 const async = require('hbs/lib/async');
 var router = express.Router();
 var app = express();
+const bcrypt = require('bcrypt');
+
 // const fs = require("fs")
 const path = require('path');
 //database connection
@@ -93,7 +95,7 @@ router.post('/addnotification', async (req, res) => {
 })
 
 //admin login operation
-router.post('/loginA', (req, res) => {
+router.post('/loginA',async (req, res) => {
   var sql = `select * from admin where username="${req.body.username}"`;
   await connection.query(sql, function (err, result) {
     if (err) throw err;
@@ -101,9 +103,9 @@ router.post('/loginA', (req, res) => {
       bcrypt.compare(req.body.password, result[0].password, function (err, status) {
         if (status) {
           req.session.admin = result[0];
-          res.redirect('admin/home')
+          res.redirect('/admin/home')
         } else {
-          res.redirect('admin/')
+          res.redirect('/admin/')
         }
       });
     }
@@ -113,7 +115,7 @@ router.post('/loginA', (req, res) => {
 //logout admin
 router.get('/logoutA',(req,res)=>{
   req.session.destroy();
-  res.redirect('admin/');
+  res.redirect('/admin');
 })
 //delete notification
 router.get('/deleteNotification/:name',isAdmin, async (req, res) => {
@@ -154,7 +156,7 @@ router.post('/branch', async (req, res) => {
   await connection.query(sql, (err, result) => {
     if (err) throw err;
     else {
-      res.render('/admin/branchstudents', { result })
+      res.render('admin/branchstudents', { result })
     }
   })
 })
