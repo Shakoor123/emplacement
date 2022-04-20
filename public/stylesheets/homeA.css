@@ -7,36 +7,26 @@ background-color: #ffffff;
     border-radius: 5rem;
     width: 150px;
     outline: 8px;
-    border-color: #5f4dee;
+    border-color: #fd8bc4;
     background-color: #ffffff;
-    color:#5f4dee;
+    color:#fd8bc4;
 }
 .navbar-brand{
     color: #000000;
-    font-weight: 800;
-    font-size: 20px;
-}
-.navbar::hover
-{
-color: #ffffff;
 }
 .nav-link{
-    color: #ffffff;
-    font-size: 15px;
-    font-weight:800;
+    color: #000000;
 }
 .navbar{
     width: 100%;
-    background-color: #5f4dee;
+    background-color: #0000000c;
     
 }
 #carouselExampleControls{
-    margin-top: 5px;
-    margin-bottom: 20px;
+    margin-top: 10px;
 
 }
 .login:hover{
-    background-color: #5f4dee;
+    background-color: #fd8bc4;
     color: rgb(255, 255, 255);
-    border: solid 0.1rem #ffffff;
 }
