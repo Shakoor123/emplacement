@@ -6,10 +6,10 @@ const path = require('path');
 //database connection
 var mysql = require('mysql')
 var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Shakoor@2786',
-  database: 'project1'
+  host: 'b1tz1ap4tsdy5nf9ev3r-mysql.services.clever-cloud.com',
+  user: 'ujbmujruwb2dijez',
+  password: 'ZkdJXHX5fS8dqaxgcroU',
+  database: 'b1tz1ap4tsdy5nf9ev3r'
 })
 connection.connect(function (err) {
   if (err) throw err
