@@ -41,12 +41,12 @@
           <div class="card-body p-5 text-center">
 
             <h3 class="mb-5">Log in</h3>
-            <form action="/loginA" method="post">
+            <form action="/login" method="post">
             {{#if loginFail}}
               <p style="color: red;">Incorrect user name or password</p>
             {{/if}}
             <div class="form-outline mb-4">
-              <input type="text" name="username" placeholder="mobile no" class="form-control form-control-lg" required />
+              <input type="text" name="mobile" placeholder="mobile no" class="form-control form-control-lg" required />
             </div>
 
             <div class="form-outline mb-4">
