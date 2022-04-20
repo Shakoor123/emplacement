@@ -1,7 +1,8 @@
-body{
+.body{
     color: #000000;
 background-color: #ffffff;
     font-family: 'Quicksand', sans-serif;    
+  
 }
 .login{
     border-radius: 5rem;
@@ -16,24 +17,39 @@ background-color: #ffffff;
     font-weight: 800;
     font-size: 20px;
 }
-.navbar::hover
+.navbar-brand:hover
 {
-color: #ffffff;
+    color:#ffffff;
 }
 .nav-link{
     color: #ffffff;
     font-size: 15px;
     font-weight:800;
+
+}
+.navbar li a
+{
+    color:#ffff;
+    font-weight: 800;
+    font-size: 16px;
+}
+.navbar li a:hover
+{
+    color:#1e2547;
+
 }
 .navbar{
     width: 100%;
     background-color: #5f4dee;
     
 }
-#carouselExampleControls{
-    margin-top: 5px;
+#carouselExampleControls
+{
+    margin-top: auto;
     margin-bottom: 20px;
-
+    margin-left: 10px;
+    margin-right: 10px;
+   
 }
 .login:hover{
     background-color: #5f4dee;
