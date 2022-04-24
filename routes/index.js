@@ -19,6 +19,7 @@ connection.connect(function (err) {
   console.log('database connected...')
 
 })
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   var user = req.session.user;

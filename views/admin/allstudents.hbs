@@ -45,6 +45,7 @@
       <th scope="col">Reg No</th>
       <th scope="col">Name</th>
       <th scope="col">email</th>
+      <th scope="col">branch</th>
       <th scope="col">phone</th>
       <th scope="col">CGPA</th>
 
@@ -56,10 +57,10 @@
       <td>{{this.rno}}</td>
       <td>{{this.name}}</td>
       <td>{{this.email}}</td>
+      <td>{{this.branch}}</td>
       <td>{{this.phone}}</td>
       <td>{{this.cgpa}}</td>
       <td>
-        <a href="" class="btn btn-primary">Edit</a>
         <a href="/admin/deletestudent/{{this.phone}}" class="btn btn-danger">Remove</a>
       </td>
     </tr>

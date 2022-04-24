@@ -2,8 +2,7 @@ var express = require('express');
 const async = require('hbs/lib/async');
 var router = express.Router();
 var app = express();
-const bcrypt = require('bcrypt');
-
+const bcrypt = require('bcrypt')
 // const fs = require("fs")
 const path = require('path');
 //database connection
@@ -24,7 +23,7 @@ function isAdmin(req,res,next){
   if(req.session.admin){
     next()
   }else{
-    redirect('/')
+    res.render('error')
   }
   }
 
@@ -50,7 +49,7 @@ router.get('/home',isAdmin, (req, res) => {
   connection.query(sql, (err, result) => {
     if (err) throw err;
     else {
-      console.log(result);
+      //console.log(result);
       res.render('admin/home', { result })
     }
   })
@@ -61,7 +60,7 @@ router.get('/notification',isAdmin, (req, res) => {
   connection.query(`SELECT * FROM notification `, function (err, result, fields) {
     if (err) throw err;
     else {
-      console.log(result);
+     // console.log(result);
       res.render('admin/notification', { result })
     }
 
@@ -118,19 +117,13 @@ router.get('/logoutA',(req,res)=>{
   res.redirect('/admin');
 })
 //delete notification
-router.get('/deleteNotification/:name',isAdmin, async (req, res) => {
-  let name = req.params.name;
-  var sql = `delete from notification where title="${name}"`;
+router.get('/deleteNotification/:id',isAdmin, async (req, res) => {
+  let Id = req.params.id;
+  var sql = `delete from notification where id="${Id}"`;
   await connection.query(sql, async function (err, result) {
     if (err) throw err;
     else {
-      var sql = `drop table ${name};`
-      await connection.query(sql, (err, result) => {
-        if (err) throw err;
-        else {
           res.redirect('/admin/notification')
-        }
-      })
     }
   })
 })
@@ -174,17 +167,17 @@ router.get('/deletestudent/:ph',isAdmin, async (req, res) => {
 
 })
 //notification applayed students
-router.get('/notificationApplyed/:title',isAdmin, async (req, res) => {
-  res.send(req.params.title)
-  var title = req.params.title;
-  var sql = `select * from ${title};`
-  await connection.query(sql, (err, result) => {
-    if (err) throw err;
-    else {
-      res.render('admin/applayed', { result, title })
-    }
-  })
-})
+// router.get('/notificationApplyed/:title',isAdmin, async (req, res) => {
+//   res.send(req.params.title)
+//   var title = req.params.title;
+//   var sql = `select * from ${title};`
+//   await connection.query(sql, (err, result) => {
+//     if (err) throw err;
+//     else {
+//       res.render('admin/applayed', { result, title })
+//     }
+//   })
+// })
 //selecting single student for edit details
 router.post('/search', (req, res) => {
   var sql = `select * from student where phone=${req.body.search};`
@@ -200,11 +193,19 @@ router.post('/search', (req, res) => {
 //change student details
 router.post('/changeDetails', (req, res) => {
   console.log(req.body);
-  var sql = `UPDATE student SET rno="${req.body.regno}",name="${req.body.name}",email="${req.body.email}",cgpa="${req.body.cgpa} WHERE phone="${req.body.phone}";`
-  connection.query(sql, (err, result) => {
-    if (err) throw err;
-    else {
-      res.redirect('/search');
+  var sql=`UPDATE student SET
+  rno = '${req.body.regno}',
+  name = "${req.body.name}",
+  branch = "${req.body.branch}",
+  email = "${req.body.email}",
+  cgpa = "${req.body.cgpa}"
+WHERE
+  phone = '${req.body.phone}';`
+  connection.query(sql,(err,result)=>{
+    if(err){
+      console.log(err);
+    }else{
+      res.redirect('/admin/students')
     }
   })
 })
@@ -235,4 +236,9 @@ router.get('/deleteimg/:img',isAdmin, (req, res) => {
     res.redirect('/admin/home');
   })
 })
+
+// edit student details
+// router.post('/changeDetails',(req,res)=>{
+//   console.log(req.body);
+// })
 module.exports = router;
