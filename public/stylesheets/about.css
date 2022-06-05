@@ -4,14 +4,7 @@ background-color: #ffffff;
     font-family: 'Quicksand', sans-serif;    
   
 }
-.login{
-    border-radius: 5rem;
-    width: 150px;
-    outline: 10px;
-    border-color: #5f4dee;
-    background-color: #ffffff;
-    color:#5f4dee;
-}
+
 .navbar-brand{
     color: #ffff;
     font-weight: 600;
@@ -52,42 +45,32 @@ background-color: #ffffff;
   
     
 }
-#carouselExampleControls
-{
-    margin-bottom: 20px;
-    margin:auto;
-    
-    
-   
-}
-.login:hover{
-    background-color: #5f4dee;
-    color: rgb(255, 255, 255);
-    border: solid 0.1rem #ffffff;
-}
-.logo img
-{
-    height: auto;
-    width: 900px;
-  
-}
-#logo
-{
-    margin: 60px 0;
-    margin-top: 50px;
-    
-}
-.notify
-{
-font-size:18px;
-color:#5f4dee;
-margin-top: 25px;
-margin-left:20px;
-font-weight: 800;
-margin-bottom: 10px;
-}
 
 
+.image-aboutus-banner {
+    background-color: #604deed7;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    padding-top: 110px;
+    padding-bottom:110px;
+ }
+ 
+ 
+.lg-text {
+    font-size:52px;
+    font-weight: 600;
+    text-transform: none;
+    color:#fff;
+}
+.para-block
+{
+    margin-left: 12px;
+    font-size: 20px;
+    font-family:  'Quicksand';
+    
+}
 
 
 
@@ -237,8 +220,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .new_footer_top .footer_bg {
-    position: absolute;
-    bottom: 0;
+    position:absolute;
+    bottom:0;
     background: url("http://droitthemes.com/html/saasland/img/seo/footer_bg.png") no-repeat scroll center 0;
     width: 100%;
     height: 266px;
@@ -298,4 +281,3 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*************footer End*****************/
-

@@ -1,30 +1,39 @@
-body{
+.body{
     color: #000000;
 background-color: #ffffff;
-    font-family:'Quicksand', sans-serif; 
+    font-family: 'Quicksand', sans-serif;    
+  
 }
 .login{
     border-radius: 5rem;
     width: 150px;
-    outline: 8px;
+    outline: 10px;
     border-color: #5f4dee;
     background-color: #ffffff;
     color:#5f4dee;
 }
 .navbar-brand{
-    color: #000000;
-    font-weight: 800;
-    font-size: 20px;
+    color: #ffff;
+    font-weight: 600;
+    font-size: 23px;
+  
+    
 }
+
 .navbar-brand:hover
 {
     color:#ffffff;
+    text-shadow:0 0 7px #000000;
 }
 .nav-link{
     color: #ffffff;
-    font-size: 15px;
+    font-size: 18px;
+    float: right;
     font-weight:800;
 
+}
+.navbar-toggler-icon{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 .navbar li a
 {
@@ -37,13 +46,9 @@ background-color: #ffffff;
     color:#1e2547;
 
 }
-.navbar-toggler-icon{
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
 .navbar{
     width: 100%;
-    background-color: #5f4dee;
-    
+    background-color: #604deecb;   
 }
 .body{
     padding-top: 170px;
