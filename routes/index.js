@@ -156,5 +156,8 @@ router.get('/cgpa', (req, res) => {
   user = req.session.user;
   res.render('cgpa', { user })
 })
-
+router.get('/about', (req, res) => {
+  user = req.session.user;
+  res.render('about', { user })
+})
 module.exports = router;
