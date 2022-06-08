@@ -1,7 +1,9 @@
 var express = require('express');
 const async = require('hbs/lib/async');
+const fs =require('fs')
 var router = express.Router();
 const bcrypt = require('bcrypt');
+require('dotenv').config();
 // const dotenv = require("dotenv");
 // const fs = require("fs")
 // dotenv.config();
@@ -9,10 +11,12 @@ const saltRounds = 10;
 //database connection
 var mysql = require('mysql')
 var connection = mysql.createConnection({
-  host: 'b1tz1ap4tsdy5nf9ev3r-mysql.services.clever-cloud.com',
-  user: 'ujbmujruwb2dijez',
-  password: 'ZkdJXHX5fS8dqaxgcroU',
-  database: 'b1tz1ap4tsdy5nf9ev3r'
+  host: process.env.dbHost,
+  user: process.env.dbUser,
+  password: process.env.dbPassword,
+  database: process.env.dbDatabase,
+  port: 3306,
+  ssl: { ca: fs.readFileSync("CA.pem") }
 })
 connection.connect(function (err) {
   if (err) throw err

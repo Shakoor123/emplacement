@@ -127,11 +127,11 @@
         {{#each result}}
         <div class="accordion-item"  style="background-color: #988afff1;border-radius:1rem;">
             <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" style="border-radius:1rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button" style="border-radius:1rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{this.id}}" aria-expanded="true" aria-controls="collapseOne">
                    {{this.title}}<sup style="color: red;">{{this.date}}</sup>
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div id="collapseOne{{this.id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <strong>{{this.discription}}</strong>
                 </div>

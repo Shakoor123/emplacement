@@ -3,3 +3,4 @@ create table notification(id varchar(200),title varchar(100),discription varchar
 create table images(name varchar(100));
 create table admin(username varchar(100),password varchar(100));
 
+mysql -h mysqldatabase-001.mysql.database.azure.com -u mysqlusertest001 -pvbBv7ZuWxcpSweX
