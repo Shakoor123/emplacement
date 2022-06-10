@@ -183,7 +183,7 @@ router.get('/deletestudent/:ph',isAdmin, async (req, res) => {
 //notification applayed students
 router.get('/notificationApplyed/:id',isAdmin, async (req, res) => {
   var id = req.params.id;
-  var sql = `select * from s${id};`
+  var sql = `select * from student JOIN s${id} on student.phone = s${id}.phone;`
   await connection.query(sql, (err, result) => {
     if (err) throw err;
     else {
