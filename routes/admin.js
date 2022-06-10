@@ -25,7 +25,6 @@ connection.connect(function (err) {
   console.log('database connected...')
 
 })
-
 //admin middile ware
 function isAdmin(req,res,next){
   if(req.session.admin){
@@ -81,7 +80,6 @@ router.get('/addnotification',isAdmin, (req, res) => {
 })
 //add notification operation
 router.post('/addnotification', async (req, res) => {
-  console.log(req.body);
   date = Date.now().toString();
   var nowDate = new Date();
   var date1 = nowDate.getDate() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getFullYear();
@@ -89,14 +87,14 @@ router.post('/addnotification', async (req, res) => {
   await connection.query(sql, async function (err, result) {
     if (err) throw err;
     else {
-      // var title=req.body.date;
-      // var sql=`create table ${title}(name varchar(200),phone bigint,branch varchar(100),rno bigint,cgpa float);`
-      // await connection.query(sql,(err,result)=>{
-      //   if (err) throw err;
-      //   else{
+      console.log(date);
+      var sql=`create table s${date}(phone bigint,FOREIGN KEY (phone) REFERENCES student(phone));`
+      await connection.query(sql,(err,result)=>{
+        if (err) throw err;
+        else{
       res.redirect('/admin/notification')
-      //   }
-      // })
+        }
+      })
     }
   })
 })
@@ -131,7 +129,15 @@ router.get('/deleteNotification/:id',isAdmin, async (req, res) => {
   await connection.query(sql, async function (err, result) {
     if (err) throw err;
     else {
+      var sql=`drop table s${Id}`
+      await connection.query(sql,(err,result)=>{
+        if (err) {
+          console.log(err);
+        }else{
           res.redirect('/admin/notification')
+        }
+      })
+          
     }
   })
 })
@@ -175,17 +181,16 @@ router.get('/deletestudent/:ph',isAdmin, async (req, res) => {
 
 })
 //notification applayed students
-// router.get('/notificationApplyed/:title',isAdmin, async (req, res) => {
-//   res.send(req.params.title)
-//   var title = req.params.title;
-//   var sql = `select * from ${title};`
-//   await connection.query(sql, (err, result) => {
-//     if (err) throw err;
-//     else {
-//       res.render('admin/applayed', { result, title })
-//     }
-//   })
-// })
+router.get('/notificationApplyed/:id',isAdmin, async (req, res) => {
+  var id = req.params.id;
+  var sql = `select * from s${id};`
+  await connection.query(sql, (err, result) => {
+    if (err) throw err;
+    else {
+      res.render('admin/applayed', { result })
+    }
+  })
+})
 //selecting single student for edit details
 router.post('/search', (req, res) => {
   var sql = `select * from student where phone=${req.body.search};`

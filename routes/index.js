@@ -164,4 +164,23 @@ router.get('/about', (req, res) => {
   user = req.session.user;
   res.render('about', { user })
 })
+
+router.get("/apply/:id",async(req,res)=>{
+ if(req.session.user){
+  var sql=`insert into s${req.params.id} values(${req.session.user.phone})`
+  connection.query(sql,(err,result)=>{
+   if(err){
+     console.log(err);
+   }else{
+     res.redirect('/')
+   }
+  })
+ }else{
+  console.log("you cant applay");
+  res.redirect('/login')
+ }
+
+  
+})
+
 module.exports = router;

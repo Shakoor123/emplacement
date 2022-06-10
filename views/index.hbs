@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EMPLACEMENT-Gptc_Kasaragod</title>
+  <title>EMPLACEMENT-Gptc_Kasaragod</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,15 +16,16 @@
 </head>
 
 <body>
-  
+
   {{!-- nav bar veenam --}}
   <nav class="navbar navbar-expand-lg fixed-top navbar-default">
     <div class="container-fluid">
- 
-    
-      <a class="navbar-brand "  href="/">EMPLACEMENT</a>
-      <button class="navbar-toggler" style="color:#fff;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+
+      <a class="navbar-brand " href="/">EMPLACEMENT</a>
+      <button class="navbar-toggler" style="color:#fff;" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -61,7 +62,7 @@
               </div>
             </div>
 
-    
+
 
 
 
@@ -79,19 +80,19 @@
           </div>
         </div>
   </nav>
-      </div> 
-      <!--logo-----> 
-        <section id="logo">
+  </div>
+  <!--logo----->
+  <section id="logo">
 
-        </section>
-            <div class="col-md-6 logo ">
-              <div class="container text-center">
-                <img src="images/periya-poly.png" class="img-fluid">
-            </div>
-            </div>
-
-        </div>
+  </section>
+  <div class="col-md-6 logo ">
+    <div class="container text-center">
+      <img src="images/periya-poly.png" class="img-fluid">
     </div>
+  </div>
+
+  </div>
+  </div>
 
   {{!-- image slide section --}}
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -119,66 +120,72 @@
   {{!-- body section --}}
 
   <div class="row">
-    <div class="col-sm-6" > <div class="card" style="background-color:#f3f7fd;margin-left:2px; margin-top:25px;">
-      <h3 class="notify">Notifications:</h3>
-     
-    <div class="accordion" id="accordionExample">
-      
-        {{#each result}}
-        <div class="accordion-item"  style="background-color: #988afff1;border-radius:1rem;">
+    <div class="col-sm-6">
+      <div class="card" style="background-color:#f3f7fd;margin-left:2px; margin-top:25px;">
+        <h3 class="notify">Notifications:</h3>
+
+        <div class="accordion" id="accordionExample">
+
+          {{#each result}}
+          <div class="accordion-item" style="background-color: #988afff1;border-radius:1rem;">
             <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" style="border-radius:1rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{this.id}}" aria-expanded="true" aria-controls="collapseOne">
-                   {{this.title}}<sup style="color: red;">{{this.date}}</sup>
-                </button>
+              <button class="accordion-button" style="border-radius:1rem;" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne{{this.id}}" aria-expanded="true" aria-controls="collapseOne">
+                {{this.title}}<sup style="color: red;">{{this.date}}</sup>
+              </button>
             </h2>
-            <div id="collapseOne{{this.id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>{{this.discription}}</strong>
-                </div>
+            <div id="collapseOne{{this.id}}" class="accordion-collapse collapse" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>{{this.discription}}</strong>
+                <a href="/apply/{{this.id}}" class="btn apply">applay</a>
+              </div>
             </div>
+          </div>
+          {{/each}}
         </div>
-        {{/each}}
+      </div>
+
     </div>
-</div>
+    <div class="col-sm-6"
+      style="background-color:#f3f7fd; border-left:6px solid #5f4dee;font-size:18px; margin-top:25px;border-top:6px solid #5f4dee;">
+      <div style="margin-top: 30px;margin-left:20px; margin-right:20px;">
+        <h3>Our Vision</h3>
 
-</div>
-    <div class="col-sm-6" style="background-color:#f3f7fd; border-left:6px solid #5f4dee;font-size:18px; margin-top:25px;border-top:6px solid #5f4dee;">
-        <div style="margin-top: 30px;margin-left:20px; margin-right:20px;">
-            <h3>Our Vision</h3>
+        <p>To be an institute of global repute, moulding socially committed technicians and
+          entrepreneurs bringing
+          sustainable development.</p>
 
-            <p>To be an institute of global repute, moulding socially committed technicians and
-                entrepreneurs bringing
-                sustainable development.</p>
+      </div>
+      <div style="margin-top: 40px;margin-left:20px; margin-right:20px;">
+        <h3>Our Mission</h3>
 
-        </div>
-        <div style="margin-top: 40px;margin-left:20px; margin-right:20px;">
-            <h3>Our Mission</h3>
-
-            <p>1. Provide value based quality technical education and training using state of the art
-                infrastructure, tools and methodologies.</p>
-            <p>2. Collaborate with industries and academic institutions, bridging the gap between
-                curriculum and latest industrial practices.</p>
-            <p>3. Promote co and extra- curricular activities, fostering leadership qualities, problem
-                solving skills and team spirit.</p>
-            <p>4. Create an ambience for career building, encourage life-long learning leading to
-                self-actualization.</p>
-        </div>
+        <p>1. Provide value based quality technical education and training using state of the art
+          infrastructure, tools and methodologies.</p>
+        <p>2. Collaborate with industries and academic institutions, bridging the gap between
+          curriculum and latest industrial practices.</p>
+        <p>3. Promote co and extra- curricular activities, fostering leadership qualities, problem
+          solving skills and team spirit.</p>
+        <p>4. Create an ambience for career building, encourage life-long learning leading to
+          self-actualization.</p>
+      </div>
 
     </div>
   </div>
   {{!-- collage photos --}}
-  <div class="card" style="background-color:#f3f7fd;margin-left:20px; margin-right:20px;margin-top:30px;margin-bottom:20px;">
-  <h3 class="notify"> our Achievements:-</h3>
-  <div class="container">
-    <div class="row">
-      {{#each images}}
-      <div class="col-sm-4" style="margin-top: 20px;">
-        <img src="/images/{{this.name}}" style="width:100%;height:auto;">
+  <div class="card"
+    style="background-color:#f3f7fd;margin-left:20px; margin-right:20px;margin-top:30px;margin-bottom:20px;">
+    <h3 class="notify"> our Achievements:-</h3>
+    <div class="container">
+      <div class="row">
+        {{#each images}}
+        <div class="col-sm-4" style="margin-top: 20px;">
+          <img src="/images/{{this.name}}" style="width:100%;height:auto;">
+        </div>
+        {{/each}}
       </div>
-      {{/each}}
     </div>
   </div>
-</div>
 
 
 
@@ -187,110 +194,122 @@
 
 
   {{!-- about us section --}}
-   <div class="row">
-  <div class="col-sm-6" style="background-color:#f3f7fd; border-left:18px solid #5f4dee; font-size:18px; margin-top:30px;">
-        <div style="mar#604dee9a;gin-top: 35px;margin-left:20px; margin-right:20px;">
-            <h3>GPC Kasaragod</h3>
-  <div class="text-center" id="foot">
-    <div class="card-header">
-    
-<p style="text-align:justify">
-                                                Established in the year 1988 with an objective of providing high quality technical education with skill oriented
-        training to the youth of North Malabar region, Government Polytechnic College Kasaragod has grown in stature as
-        one of the premier Polytechnic Colleges in the state of Kerala.
+  <div class="row">
+    <div class="col-sm-6"
+      style="background-color:#f3f7fd; border-left:18px solid #5f4dee; font-size:18px; margin-top:30px;">
+      <div style="mar#604dee9a;gin-top: 35px;margin-left:20px; margin-right:20px;">
+        <h3>GPC Kasaragod</h3>
+        <div class="text-center" id="foot">
+          <div class="card-header">
 
-        The College offers five three-year Diploma programs in the disciplines of Civil Engineering, Mechanical
-        Engineering, Electrical & Electronics Engineering, Electronics Engineering, and Computer Engineering. The annual
-        intake of the institution is 280 at present.
+            <p style="text-align:justify">
+              Established in the year 1988 with an objective of providing high quality technical education with skill
+              oriented
+              training to the youth of North Malabar region, Government Polytechnic College Kasaragod has grown in
+              stature as
+              one of the premier Polytechnic Colleges in the state of Kerala.
 
-        The GPC Kasaragod campus is situated at Vadakkekkara, Periye in the Pullur-Periye Grama Panchayath in Kasaragod
-        district. The nearest railway station is Kanhangad (13 km) on Mangalore-Palakkad line. There are airports at
-        Mangalore (80 km) and Kannur (108 km).
-        .</p>
-      <a href="http://gpckasaragod.ac.in/" class="btn btn-primary login">know more</a>
+              The College offers five three-year Diploma programs in the disciplines of Civil Engineering, Mechanical
+              Engineering, Electrical & Electronics Engineering, Electronics Engineering, and Computer Engineering. The
+              annual
+              intake of the institution is 280 at present.
+
+              The GPC Kasaragod campus is situated at Vadakkekkara, Periye in the Pullur-Periye Grama Panchayath in
+              Kasaragod
+              district. The nearest railway station is Kanhangad (13 km) on Mangalore-Palakkad line. There are airports
+              at
+              Mangalore (80 km) and Kannur (108 km).
+              .</p>
+            <a href="http://gpckasaragod.ac.in/" class="btn btn-primary login">know more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6" style="border-top:8px solid #5f4dee;">
+      <img src="/images/img.png" alt="please try again" width="100%" height="100%" style="padding:25px;">
     </div>
   </div>
-  </div>
- </div>
-  <div class="col-sm-6" style="border-top:8px solid #5f4dee;">
-   <img src="/images/img.png" alt="please try again" width="100%" height="100%" style="padding:25px;">
-  </div>
-</div>
 
 
 
 
-<footer class="new_footer_area bg_color">
-            <div class="new_footer_top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6">
-                            <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible;margin-bottom:15px; animation-delay: 0.2s; animation-name: fadeInLeft;">
-                                <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
-                                <p>we need your valueable feedback</p>
-                                <form action="mailto:mail@gpckasaragod.ac.in" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
-                                    <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
-                                    <button class="btn btn_get btn_get_two" type="submit">Write us</button>
-                                   
-                                    <p class="mchimp-errmessage" style="display: none;"></p>
-                                    <p class="mchimp-sucmessage" style="display: none;"></p>
-                                    
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style=" visibility: visible;margin-bottom:15px; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                                <h3 class="f-title f_600 t_color f_size_18">Quick links</h3>
-                                <ul class="list-unstyled f_list">
-                                  <li><a href="http://gpckasaragod.ac.in/">GPC Kasaragod</a></li>
-                                    <li><a href="https://tekerala.org/">SBTE Kerala</a></li>
-                                    <li><a href="http://www.dtekerala.gov.in/index.php/en/">DTE Kerala</a></li>
-                                    <li><a href="ttps://www.sitttrkerala.ac.in/">SITTTR Kerala</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible;margin-bottom:15px; animation-delay: 0.6s; animation-name: fadeInLeft;">
-                                <h3 class="f-title f_600 t_color f_size_18">Contact us</h3>
-                                <ul class="list-unstyled f_list">
-                                    <li><a href="http://gpckasaragod.ac.in/">Government Polytechnic College Kasaragod, 671320</a></li><br>
-                                    <li><a href="mailto:principalksgd@gmail.com">	mail@gpckasaragod.ac.in, principalksgd@gmail.com</a></li><br>
-                                    <li><a href="tel:4672234020">04672-234020</a></li>
-                                 
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
-                                <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
-                                <div class="f_social_icon">
-                                    <a href="https://www.facebook.com/gpcksgd/"><img src="images/fb.png" width="34px" height="34px"></a>
-                                   <a href="https://www.instagram.com/gptc_ksd/"><img src="images/in.png" width="30px" height="30px"></a>
-                                   <a href="https://twitter.com/GpcKasaragod"><img src="images/twi.png" width="34px" height="34px"></a>
-                          
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer_bg">
-                    <div class="footer_bg_one"></div>
-                    <div class="footer_bg_two"></div>
-                </div>
+  <footer class="new_footer_area bg_color">
+    <div class="new_footer_top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s"
+              style="visibility: visible;margin-bottom:15px; animation-delay: 0.2s; animation-name: fadeInLeft;">
+              <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
+              <p>we need your valueable feedback</p>
+              <form action="mailto:mail@gpckasaragod.ac.in" class="f_subscribe_two mailchimp" method="post"
+                novalidate="true" _lpchecked="1">
+                <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
+                <button class="btn btn_get btn_get_two" type="submit">Write us</button>
+
+                <p class="mchimp-errmessage" style="display: none;"></p>
+                <p class="mchimp-sucmessage" style="display: none;"></p>
+
+              </form>
             </div>
-            <div class="footer_bottom">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-sm-7">
-                            <p class="mb-0 f_400">©EMPLACEMENT. 2022 All rights reserved.</p>
-                        </div>
-                        <div class="col-lg-6 col-sm-5 text-right">
-                            <p>Made by <i class="icon_heart"></i> - <a href="#">MAAMSS 2K19-22</a></p>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s"
+              style=" visibility: visible;margin-bottom:15px; animation-delay: 0.4s; animation-name: fadeInLeft;">
+              <h3 class="f-title f_600 t_color f_size_18">Quick links</h3>
+              <ul class="list-unstyled f_list">
+                <li><a href="http://gpckasaragod.ac.in/">GPC Kasaragod</a></li>
+                <li><a href="https://tekerala.org/">SBTE Kerala</a></li>
+                <li><a href="http://www.dtekerala.gov.in/index.php/en/">DTE Kerala</a></li>
+                <li><a href="ttps://www.sitttrkerala.ac.in/">SITTTR Kerala</a></li>
+              </ul>
             </div>
-        </footer>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s"
+              style="visibility: visible;margin-bottom:15px; animation-delay: 0.6s; animation-name: fadeInLeft;">
+              <h3 class="f-title f_600 t_color f_size_18">Contact us</h3>
+              <ul class="list-unstyled f_list">
+                <li><a href="http://gpckasaragod.ac.in/">Government Polytechnic College Kasaragod, 671320</a></li><br>
+                <li><a href="mailto:principalksgd@gmail.com"> mail@gpckasaragod.ac.in, principalksgd@gmail.com</a></li>
+                <br>
+                <li><a href="tel:4672234020">04672-234020</a></li>
+
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s"
+              style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+              <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
+              <div class="f_social_icon">
+                <a href="https://www.facebook.com/gpcksgd/"><img src="images/fb.png" width="34px" height="34px"></a>
+                <a href="https://www.instagram.com/gptc_ksd/"><img src="images/in.png" width="30px" height="30px"></a>
+                <a href="https://twitter.com/GpcKasaragod"><img src="images/twi.png" width="34px" height="34px"></a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer_bg">
+        <div class="footer_bg_one"></div>
+        <div class="footer_bg_two"></div>
+      </div>
+    </div>
+    <div class="footer_bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-sm-7">
+            <p class="mb-0 f_400">©EMPLACEMENT. 2022 All rights reserved.</p>
+          </div>
+          <div class="col-lg-6 col-sm-5 text-right">
+            <p>Made by <i class="icon_heart"></i> - <a href="#">MAAMSS 2K19-22</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
 
