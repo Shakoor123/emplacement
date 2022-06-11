@@ -1,6 +1,6 @@
 var express = require('express');
 const async = require('hbs/lib/async');
-const fs =require('fs')
+const fs = require('fs')
 var router = express.Router();
 const bcrypt = require('bcrypt');
 require('dotenv').config();
@@ -165,22 +165,59 @@ router.get('/about', (req, res) => {
   res.render('about', { user })
 })
 
-router.get("/apply/:id",async(req,res)=>{
- if(req.session.user){
-  var sql=`insert into s${req.params.id} values(${req.session.user.phone})`
-  connection.query(sql,(err,result)=>{
-   if(err){
-     console.log(err);
-   }else{
-     res.redirect('/')
-   }
-  })
- }else{
-  console.log("you cant applay");
-  res.redirect('/login')
- }
+router.get("/apply/:id", async (req, res) => {
+  if (req.session.user) {
+    const insertApply=async()=>{
+      var sql=`insert into s${req.params.id} values(${req.session.user.phone})`
+      await connection.query(sql,(err,result)=>{
+        if(err){
+          console.log(err);
+         }else{
+          res.redirect('/')
+        }
+     })
 
-  
+    }
+
+
+
+    var sql = `select * from s${req.params.id}`
+    await connection.query(sql, async (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(result.length);
+        if(result.length!=0){
+
+        let applayUser=false;
+        result.forEach(element => {
+          if (req.session.user.phone == element.phone) {
+            applayUser = true;
+          }
+          // insertApply();
+        });
+        if(applayUser==true){
+          res.redirect('/')
+        }else{
+          insertApply();
+        }
+      }
+      else{
+        insertApply()
+      }
+      }
+    })
+
+
+
+
+
+  } else {
+    console.log("you cant applay");
+    res.redirect('/login')
+  }
+
+
 })
 
 module.exports = router;
