@@ -187,10 +187,12 @@ router.get('/notificationApplyed/:id',isAdmin, async (req, res) => {
   await connection.query(sql, (err, result) => {
     if (err) throw err;
     else {
+      req.session.table=`${id}`
       res.render('admin/applayed', { result })
     }
   })
 })
+
 //selecting single student for edit details
 router.post('/search', (req, res) => {
   var sql = `select * from student where phone=${req.body.search};`
@@ -254,4 +256,14 @@ router.get('/deleteimg/:img',isAdmin, (req, res) => {
 // router.post('/changeDetails',(req,res)=>{
 //   console.log(req.body);
 // })
+
+router.get('/removeapplyuser/:phone',(req,res)=>{
+  
+  var sql = `DELETE FROM s${req.session.table} WHERE phone="${req.params.phone}";`
+  connection.query(sql, (err, result) => {
+    res.redirect('/admin/notificationApplyed/'+req.session.table);
+  })
+
+})
+
 module.exports = router;
