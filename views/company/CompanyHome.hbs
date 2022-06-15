@@ -17,9 +17,7 @@
     .view{
         margin-top: 90px;
         height: 70vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+       
     }
   </style>
 </head>
@@ -33,13 +31,41 @@
       
   </nav>
   </div>
+  
+
+
+{{#if students}}
+<table class="table view">
+  <thead>
+    <tr>
+      <th scope="col">Reg No</th>
+      <th scope="col">Name</th>
+      <th scope="col">email</th>
+      <th scope="col">branch</th>
+      <th scope="col">phone</th>
+      <th scope="col">CGPA</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each students}}
+    <tr>
+      <td>{{this.rno}}</td>
+      <td>{{this.name}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.branch}}</td>
+      <td>{{this.phone}}</td>
+      <td>{{this.cgpa}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{else}}
   <section class="view">
     <h1>Admin not provid user details ! please Contact Admin(9995559990)</h1>
   </section>
 
-
-
-
+{{/if}}
   <footer class="new_footer_area bg_color">
     <div class="new_footer_top">
       <div class="container">

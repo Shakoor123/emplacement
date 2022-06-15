@@ -296,7 +296,7 @@ router.get('/company/:email',async(req,res)=>{
         if(err){
           console.log(err);
         }else{
-          req.session.company=company[0].email;
+          req.session.companyM=company[0].email;
       res.render('admin/company',{company,notifications});
         }
         
@@ -308,8 +308,8 @@ router.get('/company/:email',async(req,res)=>{
 //give access to company
 router.get('/giveaccess/:id',async(req,res)=>{
   console.log(req.params.id);
-  console.log(req.session.company);
-  var sql= `update companies set flag="${req.params.id}" where email="${req.session.company }"`
+  console.log(req.session.companyM);
+  var sql= `update companies set flag="${req.params.id}" where email="${req.session.companyM }"`
   await connection.query(sql,(err,result)=>{
     if(err){
       console.log(err);

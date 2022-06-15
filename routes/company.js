@@ -46,7 +46,6 @@ router.get('/login',(req,res)=>{
 })
 //operation login
 router.post('/login',async(req,res)=>{
-    console.log(req.body);
     var sql = `select COUNT(*) AS c from companies`;
   await connection.query(sql, async function (err, result) {
     if (err) throw err;
@@ -92,8 +91,22 @@ router.post('/login',async(req,res)=>{
 
 })
 //company home page
-router.get('/home',(req,res)=>{
-    res.render('company/CompanyHome')
+router.get('/home',async(req,res)=>{
+    company=req.session.company
+    if(company.flag.length > 5){
+      var sql = `select * from student JOIN s${company.flag} on student.phone = s${company.flag}.phone;`
+         await connection.query(sql, (err, students) => {
+            if (err) throw err;
+            else {
+              res.render('company/CompanyHome',{company,students})
+             }
+          })
+     
+    
+    }else{
+      res.render('company/CompanyHome',{company})
+    }
+    
 })
 
 
