@@ -5,28 +5,4 @@ create table admin(username varchar(100),password varchar(100));
 
 
 
-create
-table s1654857207521(
-  phone bigint not null,
-  primary key (phone),
-  FOREIGN KEY (phone) REFERENCES student(phone)
-);
-
-
-create table student01(rno bigint,name varchar(200),branch varchar(10),email varchar(200),phone bigint,cgpa float,password varchar(200), primary key (phone));
-
-create
-table s1654857207521(
-  phone bigint not null,
-  primary key (phone),
-  FOREIGN KEY (phone) REFERENCES student01(phone)
-);
-
-
-ALTER TABLE student
-ADD PRIMARY KEY (phone); 
-
-
-SELECT rno,name,branch,email,phone,cgpa
-FROM student,s1654858526094
-where s1654858526094.phone=student.phone;
+create table companies(name varchar(250),email varchar(200),mobile bigint,cgpa float,about varchar(250),password varchar(200),flag varchar(200));

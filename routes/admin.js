@@ -265,5 +265,60 @@ router.get('/removeapplyuser/:phone',(req,res)=>{
   })
 
 })
+//select all companies
+
+router.get('/companies',async(req,res)=>{
+  
+
+  var sql=`select * from companies`;
+  await connection.query(sql,async(err,result)=>{
+    if (err) {
+      console.log(err);
+    }else{
+      
+      res.render('admin/companies',{result});
+      
+    }
+  })
+
+})
+
+//select single company for access studnets
+router.get('/company/:email',async(req,res)=>{
+  console.log(req.params.email);
+  var sql=`select * from companies where email="${req.params.email}"`;
+  await connection.query(sql,async(err,company)=>{
+    if (err) {
+      console.log(err);
+    }else{
+      var sql=`select * from notification`;
+      await connection.query(sql,(err,notifications)=>{
+        if(err){
+          console.log(err);
+        }else{
+          req.session.company=company[0].email;
+      res.render('admin/company',{company,notifications});
+        }
+        
+      })
+      
+    }
+  })
+})
+//give access to company
+router.get('/giveaccess/:id',async(req,res)=>{
+  console.log(req.params.id);
+  console.log(req.session.company);
+  var sql= `update companies set flag="${req.params.id}" where email="${req.session.company }"`
+  await connection.query(sql,(err,result)=>{
+    if(err){
+      console.log(err);
+    }else{
+      console.log("access gives successfull");
+      res.redirect('/admin/companies')
+    }
+  })
+})
+
 
 module.exports = router;
