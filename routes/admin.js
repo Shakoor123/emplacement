@@ -257,7 +257,7 @@ router.get('/deleteimg/:img',isAdmin, (req, res) => {
 //   console.log(req.body);
 // })
 
-router.get('/removeapplyuser/:phone',(req,res)=>{
+router.get('/removeapplyuser/:phone',isAdmin,(req,res)=>{
   
   var sql = `DELETE FROM s${req.session.table} WHERE phone="${req.params.phone}";`
   connection.query(sql, (err, result) => {
@@ -267,7 +267,7 @@ router.get('/removeapplyuser/:phone',(req,res)=>{
 })
 //select all companies
 
-router.get('/companies',async(req,res)=>{
+router.get('/companies',isAdmin,async(req,res)=>{
   
 
   var sql=`select * from companies`;
@@ -284,7 +284,7 @@ router.get('/companies',async(req,res)=>{
 })
 
 //select single company for access studnets
-router.get('/company/:email',async(req,res)=>{
+router.get('/company/:email',isAdmin,async(req,res)=>{
   console.log(req.params.email);
   var sql=`select * from companies where email="${req.params.email}"`;
   await connection.query(sql,async(err,company)=>{
@@ -306,7 +306,7 @@ router.get('/company/:email',async(req,res)=>{
   })
 })
 //give access to company
-router.get('/giveaccess/:id',async(req,res)=>{
+router.get('/giveaccess/:id',isAdmin,async(req,res)=>{
   console.log(req.params.id);
   console.log(req.session.companyM);
   var sql= `update companies set flag="${req.params.id}" where email="${req.session.companyM }"`

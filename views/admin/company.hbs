@@ -1,26 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {{#each company}}
-   name: {{this.name}}<br>
-   email: {{this.email}}<br>
-    mobile no: {{this.mobile}}<br>
-    required cgpa: {{this.cgpa}}<br>
-   About company {{this.about}}
+  <head>
+    <!-- Required meta tags -->
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/home.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@500&family=Quicksand&display=swap" rel="stylesheet">
+    <style>
+        .body{
+            display: flex;
+            width: 100%;
+            margin-top: 30px;
+            align-items: center;
+            flex-direction: column;
+        }
+        .company{
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .buttons{
+            
+            display: flex;
+            flex-direction: column;
+        }
+        .about{
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .btn{
+            margin-top: 12px;
+        }
+    </style>
+    <title>Hello, world!</title>
+    
+  </head>
+  <body>
+{{!-- nav bar veenam --}}
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Admin</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/admin/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/admin/notification">Notification</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/admin/students">Students</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/admin/companies">Companies</a>
+          </li>
+        </ul>
+        <a type="button" href="/admin/logoutA" class="btn login">Log Out</a>
+
+      </div>
+    </div>
+  </nav>
+{{!-- body section of the single student --}}
+
+<div class="body">
+    <div class="company">
+
+ {{#each company}}
+   <p class="about"> name: {{this.name}}</p>
+   <p class="about">email: {{this.email}}<br></p>
+   <p class="about"> mobile no: {{this.mobile}}<br></p>
+    <p class="about">required cgpa: {{this.cgpa}}<br></p>
+ <p class="about">About company {{this.about}}</p>
    
     {{/each}}
+    </div>
 
-<br><br><br><br>
+    <div class="buttons">
+    
     {{#each notifications}}
-    <a href="/admin/giveaccess/{{this.id}}">{{this.title}}</a><br>
+    <a class="login btn" href="/admin/giveaccess/{{this.id}}">{{this.title}}</a><br>
     
     {{/each}}
-    <a href="/admin/giveaccess/NULL">no access</a><br>
-</body>
+    <a class="login btn" href="/admin/giveaccess/NULL">no access</a><br>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+
+
 </html>
+
