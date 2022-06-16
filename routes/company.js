@@ -19,7 +19,15 @@ connection.connect(function (err) {
   console.log('database connected...')
 
 })
+//admin middile ware
+function isCompany(req,res,next){
+  if(req.session.company){
+    next()
+  }else{
+    res.redirect('/company/login')
+  }
 
+}
 //get company register
 router.get('/',(req,res)=>{
     res.render('company/CompanyRegister')
@@ -30,7 +38,7 @@ router.post('/',async(req,res)=>{
 
 
     bcrypt.hash(req.body.password, saltRounds, async function (err, hash) {
-        var sql = `INSERT INTO companies VALUES ("${req.body.name}","${req.body.email}","${req.body.mobile}","${req.body.cgpa}","${req.body.about}","${hash}",NULL)`;
+        var sql = `INSERT INTO companies VALUES ("${req.body.name}","${req.body.email}","${req.body.mobile}","${req.body.cgpa}","${req.body.about}","${hash}","NULL")`;
         await connection.query(sql, function (err, result) {
           if (err) throw err;
           else {
@@ -91,7 +99,7 @@ router.post('/login',async(req,res)=>{
 
 })
 //company home page
-router.get('/home',async(req,res)=>{
+router.get('/home',isCompany,async(req,res)=>{
     company=req.session.company
     if(company.flag.length > 5){
       var sql = `select * from student JOIN s${company.flag} on student.phone = s${company.flag}.phone;`
@@ -109,8 +117,11 @@ router.get('/home',async(req,res)=>{
     
 })
 
-
-
+//comapany log out
+router.get('/logout',(req,res)=>{
+  req.session.destroy();
+  res.redirect('/company/login')
+})
 
 
 module.exports = router;

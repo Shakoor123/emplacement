@@ -319,6 +319,17 @@ router.get('/giveaccess/:id',isAdmin,async(req,res)=>{
     }
   })
 })
-
+//delete company 
+router.get('/deletcompany/:email',async(req,res)=>{
+  console.log(req.params.email);
+  var sql=`delete from companies where email="${req.params.email}"`
+  await connection.query(sql,(err,result)=>{
+    if(err){
+      console.log(err);
+    }else{
+      res.redirect("/admin/companies")
+    }
+})
+})
 
 module.exports = router;
