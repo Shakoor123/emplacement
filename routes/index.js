@@ -164,51 +164,68 @@ router.get('/about', (req, res) => {
   user = req.session.user;
   res.render('about', { user })
 })
-
+//applay button
 router.get("/apply/:id", async (req, res) => {
   if (req.session.user) {
-    const insertApply=async()=>{
-      var sql=`insert into s${req.params.id} values(${req.session.user.phone})`
-      await connection.query(sql,(err,result)=>{
-        if(err){
-          console.log(err);
-         }else{
-          res.redirect('/')
-        }
-     })
-
-    }
-
-
-
-    var sql = `select * from s${req.params.id}`
-    await connection.query(sql, async (err, result) => {
-      if (err) {
+    var user=req.session.user
+    var nofiCgpa;
+    var sql=`select cgpa from notification where id="${req.params.id}"`;
+    await connection.query(sql,async(err,result)=>{
+      if(err){
         console.log(err);
-      } else {
-        console.log(result.length);
-        if(result.length!=0){
+      }
+      nofiCgpa=result[0].cgpa;
+      if(user.cgpa>=nofiCgpa){
 
-        let applayUser=false;
-        result.forEach(element => {
-          if (req.session.user.phone == element.phone) {
-            applayUser = true;
-          }
-          // insertApply();
-        });
-        if(applayUser==true){
-          res.redirect('/')
-        }else{
-          insertApply();
+        const insertApply=async()=>{
+          var sql=`insert into s${req.params.id} values(${req.session.user.phone})`
+          await connection.query(sql,(err,result)=>{
+            if(err){
+              console.log(err);
+             }else{
+              res.redirect('/')
+            }
+         })
+    
         }
-      }
-      else{
-        insertApply()
-      }
+    
+    
+    
+        var sql = `select * from s${req.params.id}`
+        await connection.query(sql, async (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(result.length);
+            if(result.length!=0){
+    
+            let applayUser=false;
+            result.forEach(element => {
+              if (req.session.user.phone == element.phone) {
+                applayUser = true;
+              }
+              // insertApply();
+            });
+            if(applayUser==true){
+              res.redirect('/')
+            }else{
+              insertApply();
+            }
+          }
+          else{
+            insertApply()
+          }
+          }
+        })
+    
+      }else{
+        console.log("you cant applay");
+        res.redirect('/cgpa')
+    
       }
     })
 
-
+    
 
 
 
