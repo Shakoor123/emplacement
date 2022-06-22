@@ -74,8 +74,8 @@
       <tbody>
         {{#each result}}
         <tr>
-          <td><img src="/images/{{this.name}}" style="width:200px;height:200px;"></td>
-          <td><a href="/admin/deleteimg/{{this.name}}"
+          <td><img src="{{this.name}}" style="width:200px;height:200px;"></td>
+          <td><a href="/admin/deleteimg/{{this.id}}"
               onclick="return confirm('Are you sure you want to delete this image ?')" class="btn btn-danger">Remove</a>
           </td>
         </tr>

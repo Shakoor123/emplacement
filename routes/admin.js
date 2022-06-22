@@ -5,6 +5,14 @@ var app = express();
 const bcrypt = require('bcrypt')
 const fs =require('fs')
 const path = require('path');
+var cloudinary = require('cloudinary').v2;
+cloudinary.config({ 
+  cloud_name: 'desv0ugoq', 
+  api_key: process.env.api_key, 
+  api_secret: process.env.api_secret,
+  secure: true
+});
+
 require('dotenv').config();
 // const dotenv = require("dotenv");
 // const fs = require("fs")
@@ -233,20 +241,24 @@ WHERE
 app.use('/profile', express.static('public/images'));
 // inserting the image
 router.post('/insertimage', upload.single('pic'), async (req, res) => {
-
-  var sql = `insert into images values("${req.file.filename}");`
-  await connection.query(sql, (err, result) => {
+  //console.log(req.file.filename);
+  cloudinary.uploader.upload(req.file.path).then( result=>{
+    console.log(result.url);
+    var sql = `insert into images (name) values("${result.url}");`
+   connection.query(sql, (err, result) => {
     if (err) throw err;
     else {
       res.redirect("/admin/home");
 
     }
   })
+  }).catch(console.log("err occur"))
+
 })
 //delete image of front page
-router.get('/deleteimg/:img',isAdmin, (req, res) => {
-  var image = req.params.img;
-  var sql = `DELETE FROM images WHERE name="${image}";`
+router.get('/deleteimg/:id',isAdmin, (req, res) => {
+  var id = req.params.id;
+  var sql = `DELETE FROM images WHERE id="${id}";`
   connection.query(sql, (err, result) => {
     res.redirect('/admin/home');
   })
