@@ -166,6 +166,29 @@
       </div>
     </div>
 
+    <div class="col-md-2 cgpacal ">
+          <div class="card" style="width: 18rem; padding:30px;">
+            <form name="f6">
+              <p class="cgpa-title">SEM 5</p>
+              <table>
+                <ul>
+                  <li>Sub code 5009 <input type="text" id="5009" maxlength="1" size="3"> 2</li><br>
+                  <li>Sub code 5131 <input type="text" id="5131" maxlength="1" size="3"> 4</li><br>
+                  <li>Sub code 5132 <input type="text" id="5132" maxlength="1" size="3"> 4</li><br>
+                  <li>Sub code 5133 <input type="text" id="5133" maxlength="1" size="3"> 4</li><br>
+                  <li>Sub code 5136 <input type="text" id="5136" maxlength="1" size="3"> 4</li><br>
+                  <li>Sub code 5137 <input type="text" id="5137" maxlength="1" size="3"> 3</li><br>
+                  <li>Sub code 5138 <input type="text" id="5138" maxlength="1" size="3"> 2</li><br>
+                  <li>Sub code 5139 <input type="text" id="5139" maxlength="1" size="3"> 2</li><br><br><br><br>
+                  <li>SGPA of 5TH sem <input type="text" name="sem5" maxlength="0" size="3"></li><br>
+                </ul>
+                <a style="font-size:12px;">after finished plese click</a> <a style="font-size:14px;color:black;"
+                  href="#submit">SUBMIT </a>
+              </table>
+            </form>
+          </div>
+        </div>
+
 
     <div class="col-md-2 cgpacal">
       <div class="card" style="width: 18rem; padding:30px;">
@@ -301,6 +324,50 @@
       var fourth = d1 + d2 + d3 + d4 + d5 + d6 + d7 + d8;
       fourth = (fourth / 310) * 10;
       document.f4.sem4.value = fourth;
+
+
+
+      var f1 = document.getElementById("5009").value;
+      var five1 = 2 * grade(f1);
+      var f2 = document.getElementById("5131").value;
+      var five2 = 4 * grade(f2);
+      var f3 = document.getElementById("5132").value;
+      var five3 = 4 * grade(f3);
+      var f4 = document.getElementById("5133").value;
+      var five4 = 4 * grade(f4);
+      var f5 = document.getElementById("5136").value;
+      var five5 = 4 * grade(f5);
+      var f6 = document.getElementById("5137").value;
+      var five6 = 3 * grade(f6);
+      var f7 = document.getElementById("5138").value;
+      var five7 = 2 * grade(f7);
+      var f8 = document.getElementById("5139").value;
+      var five8 = 2 * grade(f8);
+
+      var fifth = five1 + five2 + five3 + five4 + five5 + five6 + five7 + five8;
+      fifth = (fifth / 250) * 10;
+      document.f6.sem5.value = fifth;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       document.f5.cgpatotal.value = (first + second + third + fourth) / 4;
       document.f5.cgpatotal1.value=(first+second+third)/3;
 
