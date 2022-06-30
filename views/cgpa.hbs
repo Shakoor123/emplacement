@@ -197,6 +197,8 @@
             <ul style=>
            <li>SGPA upto 3rd <input type="text" name="cgpatotal1" maxlength="0" size="3"></li><br>
            <li>SGPA upto 4th <input type="text" name="cgpatotal" maxlength="0"  size="3"></li><br>
+           <li>SGPA upto 5th <input type="text" name="cgpatotal5" maxlength="0"  size="3"></li><br>
+
         </ul>
          </table>
         </form>
@@ -367,7 +369,7 @@
 
 
 
-
+      document.f5.cgpatotal5.value = (first + second + third + fourth + fifth) / 5;
       document.f5.cgpatotal.value = (first + second + third + fourth) / 4;
       document.f5.cgpatotal1.value=(first+second+third)/3;
 
